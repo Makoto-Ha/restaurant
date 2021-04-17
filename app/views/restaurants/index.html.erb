@@ -1,0 +1,27 @@
+<h1>餐廳列表</h1>
+<%= link_to "新增餐廳", new_restaurant_path %>
+
+<table>
+    <thead>
+        <tr>
+            <td>標題</td>
+            <td>地址</td>
+            <td>電話</td>
+            <td>信箱</td>
+            <td>簡介</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @restaurants.each do |r| %>
+        <tr>
+            <td><%= r.title %></td>
+            <td><%= r.address %></td>
+            <td><%= r.tel %></td>
+            <td><%= r.email %></td>
+            <td><%= r.description %></td>
+            <td><%= link_to "編輯", edit_restaurant_path(r) %>
+            <%= link_to "刪除", restaurant_path(r), method: "delete", data: {confirm: "確認要刪除嗎"} %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
