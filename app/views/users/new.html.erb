@@ -1,0 +1,26 @@
+<h1>註冊帳號</h1>
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+    </ul>
+  <% end %>  
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pasword %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pasword_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+    <%= f.submit %>
+<% end %>
