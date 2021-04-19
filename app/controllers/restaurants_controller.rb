@@ -5,7 +5,11 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @restaurant = Restaurant.new
+    if not session[:thankyou9527]
+      redirect_to root_path
+    else
+      @restaurant = Restaurant.new
+    end
   end
 
   def create
